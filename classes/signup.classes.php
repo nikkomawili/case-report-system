@@ -31,8 +31,7 @@ class Signup extends Dbh {
                 exit();
             }
     
-            $resultCheck = true;
-
+            $resultCheck = false;
             if($stmt->rowCount() > 0)
             {
                 $resultCheck = false;

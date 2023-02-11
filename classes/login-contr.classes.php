@@ -32,7 +32,7 @@ class LoginContr extends Login{
     // Checks if inputs are empty
 
     private function emptyInput() {
-        $result = true;
+        $result = false;
         if(empty($this->uid) || empty($this->pwd)) {
             $result = false;
         } else {
