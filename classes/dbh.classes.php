@@ -13,7 +13,7 @@ class Dbh {
             return $dbh;
 
         } catch (PDOException $e) {
-            print "Error!: " . $e->getMessage() . "<br/>";
+            print "Database Error!: " . $e->getMessage() . "<br/>";
             die();
         }
     }

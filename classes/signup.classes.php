@@ -31,8 +31,9 @@ class Signup extends Dbh {
                 exit();
             }
     
+            $profileData = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $resultCheck = false;
-            if($stmt->rowCount() > 0)
+            if(count($profileData) > 0)
             {
                 $resultCheck = false;
     
@@ -42,6 +43,7 @@ class Signup extends Dbh {
                 $resultCheck = true;
             }
             return $resultCheck;
+            return $profileData;
 
         }
 
@@ -54,17 +56,16 @@ class Signup extends Dbh {
                 exit();
             }
 
-            if($stmt->rowCount() == 0){
+            // Gets the data as an associative array
+            $profileData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if(count($profileData) == 0){
                 $stmt = null;
                 header("location: index.php?error=profilenotfound");
                 exit();
 
             }
-
-            // Gets the data as an associative array
-            $profileData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
             return $profileData;
+
         }
 
 }

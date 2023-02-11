@@ -59,7 +59,6 @@ class Login extends Dbh {
             return $user;
         }
 
-        // return $loginData;
         return $loginData;
 
     }
