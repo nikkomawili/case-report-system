@@ -12,12 +12,12 @@ if (isset($_POST['submitLogin']))
     // Grabbing the data from the form
 
     // Vulnerable to SQLInjections due to special characters might be detected as a query in the database
-    // $uid = $_POST['uid'];
-    // $pwd = $_POST['pwd'];
+    $uid = $_POST['uid'];
+    $pwd = $_POST['pwd'];
 
     // SQLInjection fix
-    $uid = htmlspecialchars($_POST['uid'], ENT_QUOTES, 'UTF-8');
-    $pwd = htmlspecialchars($_POST['pwd'], ENT_QUOTES, 'UTF-8');
+    // $uid = htmlspecialchars($_POST['uid'], ENT_QUOTES, 'UTF-8');
+    // $pwd = htmlspecialchars($_POST['pwd'], ENT_QUOTES, 'UTF-8');
 
     // Instantiate LoginContr class
     // These include statements are instantiated procedurally

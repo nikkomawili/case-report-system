@@ -59,7 +59,7 @@ class SignupContr extends Signup{
     // Checks if inputs are empty
     private function emptyInput() {
         $result = true;
-        if(empty($this->uid) || empty($this->pwd) || empty($this->pwdRepeat) /*|| empty($this->email)*/ ) {
+        if(empty($this->uid) || empty($this->pwd) || empty($this->pwdRepeat) || empty($this->email) ) {
             $result = false;
         } else {
             $result = true;

@@ -25,11 +25,12 @@ class LoginContr extends Login{
             exit();
         }
 
-        // This officially signs up the user to the website
+        // This officially logs in the user to the website
         $this->getUser($this->uid, $this->pwd);
     }
 
     // Checks if inputs are empty
+
     private function emptyInput() {
         $result = true;
         if(empty($this->uid) || empty($this->pwd)) {
@@ -39,6 +40,8 @@ class LoginContr extends Login{
         }
         return $result;
     }
+
+    // Put any other error handlers here
 
 
 }
