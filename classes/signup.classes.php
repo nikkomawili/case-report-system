@@ -7,13 +7,13 @@
 class Signup extends Dbh {
 
     // Signs up the user and puts his data into the database
-    protected function setUser($uid, $pwd, $email) {
-        $stmt = $this->connect()->prepare('INSERT INTO users (users_uid, users_pwd, users_email) VALUES (?, ?, ?);');
+    protected function setUser($uid, $pwd, $email, $role) {
+        $stmt = $this->connect()->prepare('INSERT INTO users (users_uid, users_pwd, users_email, users_role) VALUES (?, ?, ?, ?);');
 
         // This build-in SQLi function hashes the password for the user
         $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-        if(!$stmt->execute(array($uid, $hashedPwd, $email))) {
+        if(!$stmt->execute(array($uid, $hashedPwd, $email, $role))) {
             $stmt = null;
             header("location: ../index.php?error=stmtfailed");
             exit();

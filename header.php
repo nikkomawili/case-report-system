@@ -43,7 +43,18 @@
                         // echo $_SESSION["userrole"];
                         ?>
                         <li class="nav-item"><a href="indexadmin.php" class="nav-link">Admin</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Manage</a></li>
+                        <li class="nav-item"><a href="indexadmin.php" class="nav-link">Case Records</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Manage
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="user_manage.php">Manage Users</a></li>
+                                <li><a class="dropdown-item" href="user_register.php">Register Users</a></li>
+                                <!-- <li><hr class="dropdown-divider"></li> -->
+                                <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                            </ul>
+                        </li>
                         
                         <?php } elseif($_SESSION["userrole"] == "staff") { ?>
                         <li class="nav-item"><a href="indexstaff.php" class="nav-link">Staff</a></li>

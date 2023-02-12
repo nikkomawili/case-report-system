@@ -11,13 +11,15 @@ class SignupContr extends Signup{
     private $pwd;
     private $pwdRepeat;
     private $email;
+    private $role;
 
     // These variables are grabbed from the form
-    public function __construct($uid, $pwd, $pwdRepeat, $email){
+    public function __construct($uid, $pwd, $pwdRepeat, $email, $role){
         $this->uid = $uid;
         $this->pwd = $pwd;
         $this->pwdRepeat = $pwdRepeat;
         $this->email = $email;
+        $this->role = $role;
     }
 
     // Error Handlers
@@ -54,13 +56,13 @@ class SignupContr extends Signup{
         }
 
         // This officially signs up the user to the website
-        $this->setUser($this->uid, $this->pwd, $this->email);
+        $this->setUser($this->uid, $this->pwd, $this->email, $this->role);
     }
 
     // Checks if inputs are empty
     private function emptyInput() {
         $result = false;
-        if(empty($this->uid) || empty($this->pwd) || empty($this->pwdRepeat) || empty($this->email) ) {
+        if(empty($this->uid) || empty($this->pwd) || empty($this->pwdRepeat) || empty($this->email) || empty($this->role)) {
             $result = false;
         } else {
             $result = true;

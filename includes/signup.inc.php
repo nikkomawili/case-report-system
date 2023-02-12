@@ -16,13 +16,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $pwd = htmlspecialchars($_POST["pwd"], ENT_QUOTES, 'UTF-8');
     $pwdRepeat = htmlspecialchars($_POST["pwdRepeat"], ENT_QUOTES, 'UTF-8');
     $email = htmlspecialchars($_POST["email"], ENT_QUOTES, 'UTF-8');
+    $role = htmlspecialchars($_POST["role"], ENT_QUOTES, 'UTF-8');
 
 
     // Instantiate SignupContr class
     include "../classes/dbh.classes.php";
     include "../classes/signup.classes.php";
     include "../classes/signup-contr.classes.php";
-    $signup = new SignupContr($uid, $pwd, $pwdRepeat, $email);
+    $signup = new SignupContr($uid, $pwd, $pwdRepeat, $email, $role);
 
     // Running error handlers and user signup
     $signup->signupUser();
@@ -38,5 +39,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $profileInfo->deFaultProfileInfo();
 
     // Going back to front page
-    header("location: ../index.php?error=none");
+    header("location: ../user_manage.php?error=none");
 }
