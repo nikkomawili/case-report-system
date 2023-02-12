@@ -19,7 +19,7 @@ class ProfileInfoContr extends ProfileInfo {
 
     public function defaultProfileInfo()
     {
-        $profileAbout = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga a et ea suscipit?";
+        $profileAbout = " ";
         $profileTitle = "Hi, I am " . $this->userUid;
         $profileText = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae praesentium officiis commodi placeat, totam velit?";
         $this->setProfileInfo($profileAbout, $profileTitle, $profileText, $this->userId);

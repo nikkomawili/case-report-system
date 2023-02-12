@@ -30,5 +30,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $login->loginUser();
 
     // Going back to the front page
-    header("location: ../index.php?error=none");
+    // header("location: ../test.php?error=none");
+
+
+
 }

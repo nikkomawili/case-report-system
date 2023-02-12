@@ -8,7 +8,7 @@
     $profileInfo = new ProfileInfoView();
 ?>
 
-    <section id="profile">
+    <section id="top profile">
         <div class="container">
             <div class="row">
 
@@ -23,7 +23,7 @@
                             </h1>
                             <form action="includes/profileinfo.inc.php" method="post">
                                 <h5 class="card-title">Intro</h5>
-                                <div class="">
+                                <div class="mt-2">
                                     <textarea id="query" class="form-control" style="height: 140px;" name="about"><?php $profileInfo->fetchAbout($_SESSION["userid"]);?></textarea>
                                     <!-- <label for="query">Your About...</label> -->
                                 </div>
@@ -34,7 +34,7 @@
                                     <textarea id="query" class="form-control" style="height: 140px;" name="introtext"><?php $profileInfo->fetchText($_SESSION["userid"]);?></textarea>
                                     <label for="query">Your Information...</label>
                                 </div> -->
-                            <div class="mb-4 text-end">
+                            <div class="mb-4 mt-2 text-end">
                                 <button type="submit" name="submitProfileInfo" class="btn btn-secondary">Save</button>
                             </div>
                             </form>

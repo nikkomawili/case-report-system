@@ -17,16 +17,17 @@
         section{
             padding: 30px 0;
         }
+
     </style>
 
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-light fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
         <div class="container-xxl">
-            <a href="#intro" class="navbar-brand">
+            <a href="index.php" class="navbar-brand">
                 <span class="fw-bold text-secondary">
-                    Case Reports DB
+                    SVMS + DA
                 </span>
             </a>
             <!-- Toggle Button for Mobile Nav -->
@@ -37,25 +38,28 @@
 
             <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                 <ul class="navbar-nav">
-                    <?php
-                        if(isset($_SESSION["userid"]))
-                        {
-                    ?>
+                    <?php if(isset($_SESSION["userid"])) { ?>
+                        <?php if($_SESSION["userrole"] == "admin") { 
+                        // echo $_SESSION["userrole"];
+                        ?>
+                        <li class="nav-item"><a href="indexadmin.php" class="nav-link">Admin</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Manage</a></li>
+                        
+                        <?php } elseif($_SESSION["userrole"] == "staff") { ?>
+                        <li class="nav-item"><a href="indexstaff.php" class="nav-link">Staff</a></li>
+                        <?php } elseif($_SESSION["userrole"] == "user") { ?>
+                        <li class="nav-item"><a href="indexuser.php" class="nav-link">Student</a></li>
+                        <?php } ?>
+                        
+                        <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="profile.php" class="nav-link"> <?php echo $_SESSION["useruid"];?></a></li>
                         <li class="nav-item ms-2 d-none d-md-inline"><a href="includes/logout.inc.php" class="btn btn-secondary"> Logout</a></li>
-                    <?php
-                        }
-                        else
-                        {
-                    ?>
-                    
+                    <?php } else { ?>
                         <!-- <li class="nav-item">User</li> -->
                         <!-- <li class="nav-item ms-2 d-none d-md-inline"><a href="#" class="btn btn-secondary">Login</a></li> -->
-
-                    <?php
-                        }
-                    ?>
+                    <?php } ?>
                 </ul>
             </div>
+
         </div>
     </nav>

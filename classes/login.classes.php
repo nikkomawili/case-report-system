@@ -1,4 +1,4 @@
-<!-- This is a MODEL class that connects to the database for changes -->
+<!-- This is a MODEL class that connects to the database and/or handles database changes -->
 
 <?php
 
@@ -50,19 +50,59 @@ class Login extends Dbh {
                 exit();
             }            
 
-            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $userData = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
             // These two variables can be called for unique users whenever theyre logged in
             session_start();
-            $_SESSION["userid"] = $user[0]["users_id"];
-            $_SESSION["useruid"] = $user[0]["users_uid"];
+            $_SESSION["userid"] = $userData[0]["users_id"];
+            $_SESSION["useruid"] = $userData[0]["users_uid"];
+            $_SESSION["userrole"] = $userData[0]["users_role"];
             
+            if($userData[0]['users_role'] == 'admin')
+            {
+                header('location: ../indexadmin.php?adminerror=none');
+            }
+            elseif($userData[0]['users_role'] == 'staff')
+            {
+                header('location: ../indexstaff.php?stafferror=none');
+            }
+            elseif($userData[0]['users_role'] == 'user')
+            {
+                header('location: ../indexuser.php?usererror=none');
+            }
+            else
+            {
+                header('location: ../index.php?indexerror=none');
+            }
+
             $stmt = null;
 
-            return $user;
+            return $userData;
         }
 
         return $loginData;
 
+    }
+
+    protected function getLoginInfo($userId){
+        $stmt = $this->connect()->prepare('SELECT * FROM users WHERE users_id = ?;');
+
+        // This statement checks if the function fails
+        if(!$stmt->execute(array($userId))){
+            $stmt = null;
+            header('location: profile.php?error=stmtfailed');
+
+            // If condition is not met, the whole method doesn't continue with any code after the exit function
+            exit();
+        }
+
+        // Then this checks if we actually did get something from the database
+        $profileData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if(count($profileData) == 0){
+            $stmt = null;
+            header('location: profile.php?error=ProfileNotFound');
+            exit();
+        }
+        return $profileData;
     }
 }
