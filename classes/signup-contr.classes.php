@@ -1,5 +1,6 @@
-<!-- Does all the updating in the database -->
-<!-- This is a CONTROLLER class which handles all the input from the user -->
+<!-- This is a CONTROLLER class which handles all user inputs -->
+<!-- A CONTROLLER class is connected to its MODEL class -->
+
 <?php
 
 class SignupContr extends Signup{
@@ -112,7 +113,5 @@ class SignupContr extends Signup{
             $userId = $this->getUserId($uid);
             return $userId[0]['users_id'];
         }
-
-
 
 }

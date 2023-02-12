@@ -1,5 +1,5 @@
-<!-- Does all the updating in the database -->
-<!-- This is a CONTROLLER class which handles all the input from the user -->
+<!-- This is a CONTROLLER class which handles all user inputs -->
+<!-- A CONTROLLER class is connected to its MODEL class -->
 
 <?php
 

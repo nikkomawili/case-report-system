@@ -1,5 +1,4 @@
-<!-- Does all of the general database queries -->
-<!-- This is a MODEL class that handles all the database connections -->
+<!-- This is a MODEL class that connects to the database for changes -->
 
 <?php
 
@@ -15,12 +14,15 @@ class Login extends Dbh {
         }
 
         $loginData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+        
+        // $loginData2 = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(count($loginData) == 0){
             $stmt = null;
             header("location: ../index.php?error=UserNotFound1");
+            // return $loginData2;
+            return $loginData;
             exit();
-        }
+        } 
 
 
         // $pwdHashed = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -50,6 +52,7 @@ class Login extends Dbh {
 
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
+            // These two variables can be called for unique users whenever theyre logged in
             session_start();
             $_SESSION["userid"] = $user[0]["users_id"];
             $_SESSION["useruid"] = $user[0]["users_uid"];

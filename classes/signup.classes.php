@@ -1,5 +1,6 @@
-<!-- Does all of the general database queries -->
-<!-- This is a MODEL class which handles all the database connections -->
+<!-- This is a MODEL class that connects to the database for changes -->
+
+
 
 <?php
 
@@ -47,25 +48,26 @@ class Signup extends Dbh {
 
         }
 
-        protected function getUserId($uid) {
-            $stmt = $this->connect()->prepare('SELECT users_id FROM users WHERE users_uid = ?;');
-
+        protected function getUserId($uid){
+            $stmt = $this->connect()->prepare('SELECT users_id FROM users  WHERE users_uid = ?;');
+    
+            // This statement checks if the function fails
             if(!$stmt->execute(array($uid))){
                 $stmt = null;
-                header("location: index.php?error=stmtfailed");
+                header('location: profile.php?error=stmtfailed');
+    
+                // If condition is not met, the whole method doesn't continue with any code after the exit function
                 exit();
             }
-
-            // Gets the data as an associative array
+    
+            // Then this checks if we actually did get something from the database
             $profileData = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if(count($profileData) == 0){
                 $stmt = null;
-                header("location: index.php?error=profilenotfound");
+                header('location: profile.php?error=ProfileNotFound');
                 exit();
-
             }
             return $profileData;
-
         }
 
 }

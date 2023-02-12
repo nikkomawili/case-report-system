@@ -3,21 +3,21 @@
 <?php
 
 // Gets that the submit button is "true"
-if (isset($_POST['submitLogin'])) 
+// if (isset($_POST['submitLogin'])) 
 // isset is outdated, not best practice
 
-// if($_SERVER['REQUEST_METHOD'] == 'POST')
+if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 
     // Grabbing the data from the form
 
     // Vulnerable to SQLInjections due to special characters might be detected as a query in the database
-    $uid = $_POST['uid'];
-    $pwd = $_POST['pwd'];
+    // $uid = $_POST['uid'];
+    // $pwd = $_POST['pwd'];
 
     // SQLInjection fix
-    // $uid = htmlspecialchars($_POST['uid'], ENT_QUOTES, 'UTF-8');
-    // $pwd = htmlspecialchars($_POST['pwd'], ENT_QUOTES, 'UTF-8');
+    $uid = htmlspecialchars($_POST['uid'], ENT_QUOTES, 'UTF-8');
+    $pwd = htmlspecialchars($_POST['pwd'], ENT_QUOTES, 'UTF-8');
 
     // Instantiate LoginContr class
     // These include statements are instantiated procedurally
