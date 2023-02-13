@@ -18,6 +18,10 @@
             padding: 30px 0;
         }
 
+        .navbar {
+            background-color: white;
+        }
+
     </style>
 
 </head>
@@ -43,7 +47,7 @@
                         // echo $_SESSION["userrole"];
                         ?>
                         <li class="nav-item"><a href="indexadmin.php" class="nav-link">Admin</a></li>
-                        <li class="nav-item"><a href="indexadmin.php" class="nav-link">Case Records</a></li>
+                        <li class="nav-item"><a href="caserecord.php" class="nav-link">Case Records</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Manage
