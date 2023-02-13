@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+
+    <script src="node_modules/apexcharts/dist/apexcharts.min.js"></script>
+
+
     <style>
         section{
             padding: 30px 0;
@@ -46,7 +50,7 @@
                         <?php if($_SESSION["userrole"] == "admin") { 
                         // echo $_SESSION["userrole"];
                         ?>
-                        <li class="nav-item"><a href="indexadmin.php" class="nav-link">Dashboard</a></li>
+                        <li class="nav-item"><a href="indexadmin.php" class="nav-link">Admin's Dashboard</a></li>
                         <li class="nav-item"><a href="caserecord.php" class="nav-link">Case Records</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,12 +65,12 @@
                         </li>
                         
                         <?php } elseif($_SESSION["userrole"] == "staff") { ?>
-                        <li class="nav-item"><a href="indexstaff.php" class="nav-link">Dashboard</a></li>
+                        <li class="nav-item"><a href="indexstaff.php" class="nav-link">Staff's Dashboard</a></li>
                         <?php } elseif($_SESSION["userrole"] == "user") { ?>
-                        <li class="nav-item"><a href="indexuser.php" class="nav-link">Dashboard</a></li>
+                        <li class="nav-item"><a href="indexuser.php" class="nav-link">User's Dashboard</a></li>
                         <?php } ?>
                         
-                        <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+                        <!-- <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li> -->
                         <li class="nav-item"><a href="profile.php" class="nav-link"> <?php echo $_SESSION["useruid"];?></a></li>
                         <li class="nav-item ms-2 d-none d-md-inline"><a href="includes/logout.inc.php" class="btn btn-secondary"> Logout</a></li>
                     <?php } else { ?>
