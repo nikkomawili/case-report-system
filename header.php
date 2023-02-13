@@ -29,7 +29,7 @@
 
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
         <div class="container-xxl">
-            <a href="index.php" class="navbar-brand">
+            <a href="#" class="navbar-brand">
                 <span class="fw-bold text-secondary">
                     SVMS + DA
                 </span>
@@ -46,7 +46,7 @@
                         <?php if($_SESSION["userrole"] == "admin") { 
                         // echo $_SESSION["userrole"];
                         ?>
-                        <li class="nav-item"><a href="indexadmin.php" class="nav-link">Admin</a></li>
+                        <li class="nav-item"><a href="indexadmin.php" class="nav-link">Dashboard</a></li>
                         <li class="nav-item"><a href="caserecord.php" class="nav-link">Case Records</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,9 +61,9 @@
                         </li>
                         
                         <?php } elseif($_SESSION["userrole"] == "staff") { ?>
-                        <li class="nav-item"><a href="indexstaff.php" class="nav-link">Staff</a></li>
+                        <li class="nav-item"><a href="indexstaff.php" class="nav-link">Dashboard</a></li>
                         <?php } elseif($_SESSION["userrole"] == "user") { ?>
-                        <li class="nav-item"><a href="indexuser.php" class="nav-link">Student</a></li>
+                        <li class="nav-item"><a href="indexuser.php" class="nav-link">Dashboard</a></li>
                         <?php } ?>
                         
                         <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>

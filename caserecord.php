@@ -22,7 +22,6 @@
                     <th scope="col">First Name</th>
                     <th scope="col">Middle Name</th>
                     <th scope="col">Extension Name</th>
-                    <th scope="col">Email</th>
                     <th scope="col">Phone No.</th>
                     <th scope="col">Address</th>
                     <th scope="col">Father's Name</th>
@@ -68,7 +67,6 @@
                             <td>$row[name_first]</td>
                             <td>$row[name_middle]</td>
                             <td>$row[name_extension]</td>
-                            <td>$row[email]</td>
                             <td>$row[phone]</td>
                             <td>$row[address]</td>
                             <td>$row[name_father]</td>
