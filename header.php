@@ -16,7 +16,6 @@
 
     <script src="node_modules/apexcharts/dist/apexcharts.min.js"></script>
 
-
     <style>
         section{
             padding: 30px 0;

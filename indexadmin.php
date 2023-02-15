@@ -56,36 +56,26 @@
         $rowCase[] = $rowTotalCases['department'];
         $rowNumbers[] = $rowTotalCases["COUNT(department)"];
     }
-
     
 ?>
 
-<script src="node_modules/apexcharts"></script>
-
 <section id="top">
 <div class="container text-center mt-5">
+
     <div class="row">
     <h1>This is Admin's Dashboard</h1>
-   <div class="row">
-   </div>
-   <div class="row">
-   </div>
+
     <div class="col-4 text-start m-3">
         <h3 class="mb-3">Total Cases</h3>
         <div id="chart"></div>
     </div>
-    <div class="col-4 text-start m-3">
-        <h3 class="mb-3">Case by Year Level</h3>
-        
-        
-        <div id="chart2" ></div>
-    </div>
-    </div>
+
 </div>
 </section>
 
 <script defer>
-                var options = {
+    var options = {
+        
         chart: {
             type: 'donut'
         },
@@ -98,32 +88,3 @@
         chart.render();
 </script>
 
-<script defer>
-                var options = {
-        chart: {
-            type: 'donut'
-        },
-        series: <?php echo json_encode($year);?>,
-        // labels: ['Apple', 'Mango', 'Orange', 'Watermelon'],
-        labels: <?php echo json_encode($department);?>
-        }
-
-        var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
-
-        chart2.render();
-</script>
-
-<script defer>
-                var options = {
-        chart: {
-            type: 'donut'
-        },
-        series: [44, 55, 41, 17, 15],
-        // labels: ['Apple', 'Mango', 'Orange', 'Watermelon'],
-        labels: <?php echo json_encode($department);?>
-        }
-
-        var chart = new ApexCharts(document.querySelector("#chart3"), options);
-
-        chart.render();
-</script>
