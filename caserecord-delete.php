@@ -7,7 +7,7 @@ if (isset ($_GET["id"])) {
 
     $serveruser="root";
     $serverpass="";
-    $connection = new mysqli('mysql:host=localhost;dbname=case-report-system_db', $serveruser, $serverpass);
+    $connection = new PDO('mysql:host=localhost;dbname=case-report-system_db', $serveruser, $serverpass);
 
     $sql = "DELETE FROM case_reports WHERE id=$id";
 

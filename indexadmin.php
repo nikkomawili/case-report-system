@@ -23,14 +23,14 @@
     }
 
 
-    $sql2 = "SELECT * FROM case_reports";
+    $sql2 = "SELECT * FROM case_reports;";
     $result2 = connect()->query($sql2);
 
     while($row2 = $result2->fetch(PDO::FETCH_ASSOC)){
         $status[] = $row2['status'];
     }
 
-    $sql3 = "SELECT program_year, count(program_year) FROM case_reports";
+    $sql3 = "SELECT program_year, count(program_year) FROM case_reports;";
     // SELECT age, count(age) FROM Students GROUP by age
     $result3 = connect()->query($sql3);
 
@@ -47,6 +47,16 @@
         // $year[] = $row4['program_year'];
     // }
 
+    $queryTotalCases = "SELECT COUNT(department), department
+    FROM case_reports GROUP BY department;";
+    $resultTotalCases = connect()->query($queryTotalCases);
+
+    while($rowTotalCases = $resultTotalCases->fetch(PDO::FETCH_ASSOC)){
+        
+        $rowCase[] = $rowTotalCases['department'];
+        $rowNumbers[] = $rowTotalCases["COUNT(department)"];
+    }
+
     
 ?>
 
@@ -56,7 +66,10 @@
 <div class="container text-center mt-5">
     <div class="row">
     <h1>This is Admin's Dashboard</h1>
-
+   <div class="row">
+   </div>
+   <div class="row">
+   </div>
     <div class="col-4 text-start m-3">
         <h3 class="mb-3">Total Cases</h3>
         <div id="chart"></div>
@@ -67,16 +80,7 @@
         
         <div id="chart2" ></div>
     </div>
-    <div class="col-4 text-start m-3">
-        <h3 class="mb-3">Case by Department</h3>
-        <div id="chart3"></div>
     </div>
-
-
-    </div>
-    
-
-    
 </div>
 </section>
 
@@ -85,9 +89,8 @@
         chart: {
             type: 'donut'
         },
-        series: [1, 1, 1, 1],
-        // labels: ['Apple', 'Mango', 'Orange', 'Watermelon'],
-        labels: <?php echo json_encode($department);?>
+        series: <?php echo json_encode($rowNumbers);?>,
+        labels: <?php echo json_encode($rowCase);?>
         }
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);

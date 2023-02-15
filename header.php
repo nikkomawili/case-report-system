@@ -57,8 +57,8 @@
                                 Manage
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="user_manage.php">Manage Users</a></li>
-                                <li><a class="dropdown-item" href="user_register.php">Register Users</a></li>
+                                <li><a class="dropdown-item" href="manage_staff.php">Staff</a></li>
+                                <li><a class="dropdown-item" href="manage_student.php">Students</a></li>
                                 <!-- <li><hr class="dropdown-divider"></li> -->
                                 <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                             </ul>
