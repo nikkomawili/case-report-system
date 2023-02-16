@@ -58,6 +58,7 @@
             }
 
             // add new user to database
+            $id = $_GET["id"];
             $stmt = "UPDATE staffs " . 
                 "SET staffs_id = '$staffsId', staffs_Lname = '$nameLast', staffs_Fname = '$nameFirst', staffs_Mname = '$nameMid', staffs_email ='$nameEmail', staffs_pwd = '$password', staffs_role = '$role' " . 
                 "WHERE id = $id";
